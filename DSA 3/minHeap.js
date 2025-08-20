@@ -26,7 +26,7 @@ class MinHeap{
 
     extractMin(){
         if(this.h.length === 0) return null
-        if(this.h.length === 2) return this.h.pop()
+        if(this.h.length === 1) return this.h.pop()
 
         const min = this.h[0]
         this.h[0] = this.h.pop()

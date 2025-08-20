@@ -1,59 +1,58 @@
-
-class MaxHeap{
-    constructor(){
+class MaxHeap {
+    constructor() {
         this.h = []
     }
-    p(i) { return Math.floor((i-1)/2) }
-    l(i) { return 2*i+1 }
-    r(i) { return 2*i+2}
-    
-    swap(i,j){
-        [this.h[i],this.h[j]] = [this.h[j],this.h[i]]
+    p(i) { return Math.floor((i - 1) / 2) }
+    l(i) { return 2 * i + 1 }
+    r(i) { return 2 * i + 2 }
+
+    swap(i, j) {
+        [this.h[i], this.h[j]] = [this.h[j], this.h[i]]
     }
-    
-    insert(v){
+
+    insert(v) {
         this.h.push(v)
         let i = this.h.length - 1
-        while(i > 0 && this.h[this.p(i)] < this.h[i]){
+        while (i > 0 && this.h[this.p(i)] < this.h[i]) {
             this.swap(i, this.p(i))
             i = this.p(i)
         }
     }
-    
-    extractMax(){
-        if(this.h.length === 0) return null
-        if(this.h.length === 1) return this.h.pop()
-        
+
+    extractMax() {
+        if (this.h.length === 0) return null
+        if (this.h.length === 1) return this.h.pop()
+
         const max = this.h[0]
         this.h[0] = this.h.pop()
         this.heapify(0)
         return max
     }
-    
-    heapify(i){
+
+    heapify(i) {
         let l = i
         let left = this.l(i)
         let right = this.r(i)
-        
-        if(left < this.h.length && this.h[left] > this.h[l]){
+
+        if (left < this.h.length && this.h[left] > this.h[l]) {
             l = left
         }
-        
-        if(right < this.h.length && this.h[right] > this.h[l]){
+
+        if (right < this.h.length && this.h[right] > this.h[l]) {
             l = right
         }
-        
-        if(l !== i){
-            this.swap(i,l)
+
+        if (l !== i) {
+            this.swap(i, l)
             this.heapify(l)
         }
     }
-    
-    peek(){
-        return this.h[0]|| null
+
+    peek() {
+        return this.h[0] || null
     }
-    
-    print(){
+
+    print() {
         console.log(this.h)
     }
 }

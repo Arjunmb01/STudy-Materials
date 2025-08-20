@@ -56,6 +56,7 @@ class Graph{
                 }else if(i !== parent) return true
             }
             return false
+        
         }
 
         for(let i in this.graph){
@@ -79,7 +80,6 @@ g.addEdges("A", "C");
 g.addEdges("B", "D");
 g.addEdges("C", "E");
 // g.addEdges("C", "A");
-
 console.log("Graph:");
 g.print();
 
