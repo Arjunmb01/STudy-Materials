@@ -29,6 +29,26 @@ class MaxHeap {
         return max
     }
 
+    delete(index){
+        if(index >= this.h.length ) return null
+        const deletedValue = this.h[index]
+
+
+        this.h[index] = this.h[this.h.length-1]
+        this.h.pop()
+
+        if(index < this.h.length ){
+            this.heapify(index)
+
+            let parent = this.p(index)
+            if(index > 0 && this.h[this.p(i) > this.h[parent]]){
+                this.swap(index, this.p(index))
+                index = this.p(index)
+            }
+        }
+        return deletedValue
+    }
+
     heapify(i) {
         let l = i
         let left = this.l(i)
