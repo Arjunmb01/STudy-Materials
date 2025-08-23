@@ -208,6 +208,27 @@ class BST{
         }
         return closest
     }
+    
+    levelOrder(){
+        let res = []
+        if(!this.root) return res
+        let queue = [this.root]
+        
+        while(queue.length){
+            let size = queue.length
+            let level = []
+            
+            for(let i =0 ; i < size ; i++ ){
+                let node = queue.shift()
+                level.push(node.value)
+                
+                if(node.left) queue.push(node.left)
+                if(node.right) queue.push(node.right)
+            }
+            res.push(level)
+        }
+        return res
+    }
 }
 
 let bst = new BST();
@@ -234,6 +255,7 @@ console.log("FINDMAX    :- ", bst.findMax())
 console.log("Count Number of Node    :- ", bst.countNode())
 console.log("Count Number of Leaves    :- ", bst.countLeaves())
 console.log("Closest value to 23    :- ", bst.closestValue())
+console.log("Levelorder   :- ", bst.levelOrder())
 
 
 
