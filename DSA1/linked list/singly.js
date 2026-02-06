@@ -117,7 +117,37 @@ class LinkedList{
         }
         this.head = prev
     }
-
+    
+    isPalindrome(){
+       if(!this.head || !this.head.next) return true 
+       
+       let fast = this.head
+       let slow = this.head
+       while(fast && fast.next){
+           slow = slow.next
+            fast = fast.next.next
+       }
+       
+       let prev = null
+       let curr = slow
+       while(curr){
+           let next = curr.next
+           curr.next = prev
+           prev = curr
+           curr= next
+       }
+       
+       let left = this.head
+       let right = prev
+       
+       while(right){
+           if(left.value !== right.value) return false
+           left = left.next
+           right = right.next
+       }
+       return true
+    }
+    
     
     
     getLength(){
@@ -168,3 +198,5 @@ console.log("========================")
 
 linked.reverse()
 console.log(linked.display())
+
+console.log(linked.isPalindrome())
