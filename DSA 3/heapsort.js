@@ -1,3 +1,7 @@
+//heapSort
+
+//TimeComplexity : O(n log n)
+
 function heapSort(arr){
     let n = arr.length
 
