@@ -1,4 +1,5 @@
-
+//Selection sort
+//Time Complexity :  O(n2)
 //Sort Product Prices (Low to High)
 
 function selectionSort(arr){
