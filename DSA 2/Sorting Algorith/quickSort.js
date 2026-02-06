@@ -1,3 +1,7 @@
+//QuickSOrt
+
+//TimeCOmplexity: O(n^2)
+
 function quickSort(arr,low =0,high = arr.length -1){
     if(low < high){
         const piviotIndex = partion(arr,low,high)
